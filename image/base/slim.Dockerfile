@@ -87,7 +87,7 @@ RUN gem install bundler pups --force &&\
 # This tool allows us to disable huge page support for our current process
 # since the flag is preserved through forks and execs it can be used on any
 # process
-ADD thpoff.c /src/thpoff.c
+ADD image/base/thpoff.c /src/thpoff.c
 RUN gcc -o /usr/local/sbin/thpoff /src/thpoff.c && rm /src/thpoff.c
 
 # clean up for docker squash
