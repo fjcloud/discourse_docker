@@ -112,8 +112,8 @@ RUN rm -fr /usr/share/man &&\
 # see https://github.com/docker/buildx/issues/150
 RUN rm -f /etc/service
 
-COPY etc/  /etc
-COPY sbin/ /sbin
+COPY image/base/etc/  /etc
+COPY image/base/sbin/ /sbin
 
 # Discourse specific bits
 RUN useradd discourse -s /bin/bash -m -U &&\
