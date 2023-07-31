@@ -60,21 +60,21 @@ RUN cd / &&\
     DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs yarn &&\
     npm install -g terser uglify-js pnpm
 
-ADD install-imagemagick /tmp/install-imagemagick
+ADD image/base/install-imagemagick /tmp/install-imagemagick
 RUN /tmp/install-imagemagick
 
-ADD install-jemalloc /tmp/install-jemalloc
+ADD image/base/install-jemalloc /tmp/install-jemalloc
 RUN /tmp/install-jemalloc
 
-ADD install-nginx /tmp/install-nginx
+ADD image/base/install-nginx /tmp/install-nginx
 RUN /tmp/install-nginx
 
-ADD install-redis /tmp/install-redis
+ADD image/base/install-redis /tmp/install-redis
 RUN /tmp/install-redis
 
-ADD install-rust /tmp/install-rust
-ADD install-ruby /tmp/install-ruby
-ADD install-oxipng /tmp/install-oxipng
+ADD image/base/install-rust /tmp/install-rust
+ADD image/base/install-ruby /tmp/install-ruby
+ADD image/base/install-oxipng /tmp/install-oxipng
 RUN /tmp/install-rust && /tmp/install-ruby && /tmp/install-oxipng && rustup self uninstall -y
 
 RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc &&\
